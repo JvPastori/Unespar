@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int matrizA[2][2];
+    int maiorValor = 0;
+
+    
+    printf("Preencha a matriz A 2x2 com valores inteiros:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("Matriz A[%d][%d]: ", i, j);
+            scanf("%d", &matrizA[i][j]);
+
+            if (matrizA[i][j] > maiorValor) {
+                maiorValor = matrizA[i][j];
+            }
+        }
+    }
+    int matrizB[2][2];
+    printf("\nMatriz B resultante:\n");
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            matrizB[i][j] = matrizA[i][j] * maiorValor;
+            printf("%d ", matrizB[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}

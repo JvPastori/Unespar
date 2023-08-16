@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    char *meses[12] = {
+        "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+        "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+    };
+    float temperaturas[12];
+    float maiorTemperatura, menorTemperatura;
+    int mesMaiorTemperatura, mesMenorTemperatura;
+
+    for (int i = 0; i < 12; i++) {
+        printf("Digite a temperatura média do mês %s: ", meses[i]);
+        scanf("%f", &temperaturas[i]);
+
+        if (i == 0 || temperaturas[i] > maiorTemperatura) {
+            maiorTemperatura = temperaturas[i];
+            mesMaiorTemperatura = i;
+        }
+
+        if (i == 0 || temperaturas[i] < menorTemperatura) {
+            menorTemperatura = temperaturas[i];
+            mesMenorTemperatura = i;
+        }
+    }
+
+    
+    printf("\nMaior temperatura do ano: %.2f°C, Mês: %s\n", maiorTemperatura, meses[mesMaiorTemperatura]);
+    printf("Menor temperatura do ano: %.2f°C, Mês: %s\n", menorTemperatura, meses[mesMenorTemperatura]);
+
+    return 0;
+}

@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    int ra[7];
+    float media[7];
+    int aluno_maior_media = 0;
+    float maior_media = 0;
+    float nota_exame = 0;
+
+    printf("Digite os registros acadêmicos (RA) e as médias finais dos alunos:\n");
+    for (int i = 0; i < 7; i++) {
+        printf("RA do aluno %d: ", i + 1);
+        scanf("%d", &ra[i]);
+
+        printf("Média final do aluno %d: ", i + 1);
+        scanf("%f", &media[i]);
+
+        // Verificando se a média é a maior até o momento
+        if (media[i] > maior_media) {
+            maior_media = media[i];
+            aluno_maior_media = i;
+        }
+    }
+
+    
+    printf("\nRA do aluno com a maior média: %d\n", ra[aluno_maior_media]);
+    printf("\nNotas necessárias para aprovação no exame final:\n");
+    for (int i = 0; i < 7; i++) {
+        if (media[i] < 7) {
+            nota_exame = 10 - (media[i] * 2);
+            printf("Aluno %d (RA: %d): %.2f\n", i + 1, ra[i], nota_exame);
+        }
+    }
+
+    return 0;
+}

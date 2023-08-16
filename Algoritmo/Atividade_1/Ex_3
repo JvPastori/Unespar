@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    int frequencia[6] = {0}; 
+    int lados_do_dado = 6;
+    int numero_sorteado;
+
+    
+    printf("Digite os números sorteados (entre 1 e 6):\n");
+    for (int i = 0; i < 20; i++) {
+        do {
+            printf("Jogada %d: ", i + 1);
+            scanf("%d", &numero_sorteado);
+        } while (numero_sorteado < 1 || numero_sorteado > lados_do_dado);
+
+        frequencia[numero_sorteado - 1]++;
+    }
+
+   
+    printf("\nNúmeros sorteados e suas frequências:\n");
+    for (int i = 0; i < lados_do_dado; i++) {
+        printf("Número %d: %d vezes\n", i + 1, frequencia[i]);
+    }
+
+    return 0;
+}
